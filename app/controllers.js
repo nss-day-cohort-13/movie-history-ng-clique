@@ -6,8 +6,23 @@ app.controller('movieCtrl', function ($scope, $http) {
       .then(function (resp) { //waits for response from API call
         console.log("resp",resp);
         $scope.movies = resp.data;//sets movies div equal to response.data
+document.getElementById('inp').value='';
     });
   };
+
+  $scope.saveMovie = function () {
+    $http.post('https://group-movie-history.firebaseio.com/favorites.json', {
+      title: $scope.movies.Title,
+      year: $scope.movies.Year,
+      rating: $scope.rateData.rateSelect,
+      watched: $scope.watchData.watched
+
+    }).then(function() {
+      window.location.reload()
+    });
+  }
+
+  $scope.delMovie = function () {}
 
 $scope.rateData = {
   rateSelect: null,
@@ -21,7 +36,7 @@ $scope.rateData = {
 };
 
 $scope.watchData = {
-  watched: "No...No Seent it."
+  watched: "I SEENT"
 
 };
 
@@ -36,15 +51,15 @@ app.controller("FavCtrl", ($scope, $http) => {
 });
 
 
-// app.controller("FavCtrl", ($scope, $http) => {
+// app.controller("delCtrl", ($scope, $http) => {
 //     $http.post('https://group-movie-history.firebaseio.com/favorites.json')
 //         .then((response) => {
 //             console.log("response", response);
-//         $scope.favMovies = response.data;
+//         $scope.favMovies = response.data.favorites;
 //         });
 // });
 
-//         app.controller("FavCtrl", ($scope, $http) => {
+//         app.controller("delCtrl", ($scope, $http) => {
 //     $http.delete('https://group-movie-history.firebaseio.com/favorites.json')
 //         .then((response) => {
 //             console.log("response", response);

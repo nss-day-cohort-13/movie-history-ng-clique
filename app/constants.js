@@ -1,2 +1,2 @@
 angular.module('app')
-  .constant('OMD_URL', 'http://www.omdbapi.com/')
+  .constant('OMD_URL', 'http://www.omdbapi.com/?t=')

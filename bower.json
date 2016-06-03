@@ -1,0 +1,20 @@
+{
+  "name": "movie-history-ng-clique",
+  "homepage": "https://github.com/nss-day-cohort-13/movie-history-ng-clique",
+  "authors": [
+    "Castle Crawford <nathanscottcrawford@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.6"
+  }
+}

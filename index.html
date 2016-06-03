@@ -12,7 +12,7 @@
   <div class="movieDiv" ng-controller="movieCtrl">
     <tt>Search Movies:</tt>
     <form ng-submit="getMovies()">
-      <input ng-model="movies">
+      <input id="inp" ng-model="movies">
       <input type="submit">
     </form>
 
@@ -37,6 +37,8 @@
       ng-true-value="'I SEENT IT.'" ng-false-value="'No...No Seent it.'">
     </label></div>
     <tt>{{watchData.watched}}</tt>
+
+    <input type="submit" value="Save!" ng-click="saveMovie()">
   </div>
 
   <div ng-controller="FavCtrl">
