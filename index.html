@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="">
+</head>
+<body ng-app="myApp">
+  <h1>ng-clique Flicks:</h1>
+
+  <div class="movieDiv" ng-controller="movieCtrl">
+    <tt>Search Movies:</tt>
+    <form ng-submit="getMovies()">
+      <input ng-model="movies">
+      <input type="submit">
+    </form>
+
+
+<div><tt>Title: {{movies.Title}}</div>
+<div><tt>Year: {{movies.Year}}</div>
+ <div><tt>Actors: {{movies.Actors}}</div>
+ <div><p><tt>Plot: {{movies.Plot}}</p></div>
+
+
+    <div>
+     <label for="rateSelect"> Rate: </label>
+     <select name="ratings" ng-model=rateData.rateSelect>
+       <option ng-repeat="option in rateData.ratings" value="{{option.id}}">{{option.name}}
+       </option>
+     </select>
+     <tt>Rating: {{rateData.rateSelect}}
+    </div>
+
+    <div><label>Watched:
+      <input type="checkbox" ng-model="watchData.watched"
+      ng-true-value="'I SEENT IT.'" ng-false-value="'No...No Seent it.'">
+    </label></div>
+    <tt>{{watchData.watched}}</tt>
+  </div>
+
+  <div ng-controller="FavCtrl">
+    <div>{{favMovies | json}}</div>
+  </div>
+
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="app/main.js"></script>
+  <script src="app/controllers.js"></script>
+</body>
+</html>
