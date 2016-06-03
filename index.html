@@ -12,7 +12,7 @@
   <div class="movieDiv" ng-controller="movieCtrl">
     <tt>Search Movies:</tt>
     <form ng-submit="getMovies()">
-      <input id="inp" ng-model="movies">
+      <input ng-model="movies">
       <input type="submit">
     </form>
 
@@ -33,8 +33,7 @@
     </div>
 
     <div><label>Watched:
-      <input type="checkbox" ng-model="watchData.watched"
-      ng-true-value="'I SEENT IT.'" ng-false-value="'No...No Seent it.'">
+      <input type="checkbox" ng-model="watchData.watched">
     </label></div>
     <tt>{{watchData.watched}}</tt>
 
@@ -42,7 +41,13 @@
   </div>
 
   <div ng-controller="FavCtrl">
-    <div>{{favMovies | json}}</div>
+    <div ng-repeat="movies in movieArray" value ="{{movies.id}}">
+    <div><tt>Title: {{movies.title}} <div>
+    <div><tt>Year: {{movies.year_released}}</div>
+    <div>Actors: {{movies.major_actors}}</div>
+    <div>Ratings: {{movies.rating}}
+    <div>Movies: {{movies.watched}}</div>
+    </div>
   </div>
 
   <script src="/bower_components/angular/angular.min.js"></script>
