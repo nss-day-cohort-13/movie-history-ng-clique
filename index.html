@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <link rel="stylesheet" href="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" href="">
 </head>
+
 <body ng-app="myApp">
-  <h1>ng-clique Flicks:</h1>
+    <h1>ng-clique Flicks:</h1>
 
-  <div class="movieDiv" ng-controller="movieCtrl">
-    <tt>Search Movies:</tt>
-    <form ng-submit="getMovies()">
-      <input ng-model="movies">
-      <input type="submit">
-    </form>
+    <div class="movieDiv" ng-controller="movieCtrl">
+        <tt>Search Movies:</tt>
+        <form ng-submit="getMovies()">
+            <input ng-model="movies">
+            <input type="submit">
+        </form>
 
 
-<div><tt>Title: {{movies.Title}}</div>
+        <div><tt>Title: {{movies.Title}}</div>
 <div><tt>Year: {{movies.Year}}</div>
  <div><tt>Actors: {{movies.Actors}}</div>
- <div><p><tt>Plot: {{movies.Plot}}</p></div>
+<!--  <div><p><tt>Plot: {{movies.Plot}}</p></div> -->
 
 
     <div>
@@ -32,26 +34,30 @@
      <tt>Rating: {{rateData.rateSelect}}
     </div>
 
-    <div><label>Watched:
-      <input type="checkbox" ng-model="watchData.watched">
+      <div ng-model="watchData.watched">
     </label></div>
-    <tt>{{watchData.watched}}</tt>
+   <div> <tt>Watched: {{watchData.watched}}</tt>
+        </div>
 
-    <input type="submit" value="Save!" ng-click="saveMovie()">
-  </div>
+        <tt>Save movie to database:</tt>
+        <input type="submit" value="Save!" ng-click="saveMovie()">
 
-  <div ng-controller="FavCtrl">
-    <div ng-repeat="movies in movieArray" value ="{{movies.id}}">
-    <div><tt>Title: {{movies.title}} <div>
-    <div><tt>Year: {{movies.year_released}}</div>
-    <div>Actors: {{movies.major_actors}}</div>
-    <div>Ratings: {{movies.rating}}
-    <div>Movies: {{movies.watched}}</div>
-    </div>
-  </div>
 
-  <script src="/bower_components/angular/angular.min.js"></script>
-  <script src="app/main.js"></script>
-  <script src="app/controllers.js"></script>
+        <div ng-controller="FavCtrl">
+            <div ng-repeat="movies in movieArray" value="{{movies.id}}">
+                <div><tt>Title: {{movies.Title}} <div>
+    <div><tt>Year: {{movies.Year}}</tt>
+                </div>
+                <div>Actors: {{movies.Actors}}</div>
+                <div>Ratings: {{movies.Rating}}</div>
+                <div>Movies: {{movies.Watched}}</div>
+                <input type="submit" value="Delete" ng-click="delMovie()">
+            </div>
+        </div>
+
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <script src="app/main.js"></script>
+        <script src="app/controllers.js"></script>
 </body>
+
 </html>

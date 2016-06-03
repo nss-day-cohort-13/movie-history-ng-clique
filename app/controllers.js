@@ -12,17 +12,31 @@ app.controller('movieCtrl', function ($scope, $http) {
 
   $scope.saveMovie = function () {
     $http.post('https://group-movie-history.firebaseio.com/favorites.json', {
-      title: $scope.movies.Title,
-      year: $scope.movies.Year,
-      rating: $scope.rateData.rateSelect,
-      watched: $scope.watchData.watched
+      Title: $scope.movies.Title,
+      Year: $scope.movies.Year,
+      Actors: $scope.movies.Actors,
+      Rating: $scope.rateData.rateSelect,
+      Watched: $scope.watchData.watched
 
     }).then(function() {
       window.location.reload()
     });
   }
 
-  $scope.delMovie = function () {}
+
+
+
+  $scope.delMovie = function () {
+    $http.delete('https://group-movie-history.firebaseio.com/favorites.json', {
+      Title: $scope.movies.Title,
+      Year: $scope.movies.Year,
+      Actors: $scope.movies.Actors,
+      Rating: $scope.rateData.rateSelect,
+      Watched: $scope.watchData.watched
+  }).then(function() {
+
+  })
+}
 
 $scope.rateData = {
   rateSelect: null,
